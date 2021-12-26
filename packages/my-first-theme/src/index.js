@@ -1,10 +1,4 @@
-const Root = () => {
-  return (
-    <>
-      <h1>Hello, Frontity!!1</h1>
-    </>
-  );
-};
+import Root from "./components";
 
 export default {
   name: "my-first-theme",
