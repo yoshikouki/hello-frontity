@@ -1,8 +1,7 @@
 const Root = () => {
   return (
     <>
-      You can edit your package in:
-      <pre>packages/my-first-theme/src/index.js</pre>
+      <h1>Hello, Frontity!!1</h1>
     </>
   );
 };
