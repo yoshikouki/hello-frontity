@@ -1,3 +1,4 @@
+import Link from "@frontity/components/link";
 import connect from "@frontity/connect";
 
 const List = connect(({ state }) => {
@@ -5,13 +6,18 @@ const List = connect(({ state }) => {
 
   return (
     <div>
-      {data.items.map(item => {
-        return (
-          <div key={item.id}>
-            {item.type} - {item.id} - {item.link}
-          </div>
-        )
-      })}
+      <ul>
+        {data.items.map(item => {
+          const post = state.source[item.type][item.id]
+          return (
+            <li>
+              <Link key={item.id} link={post.link} >
+                {post.title.rendered}
+              </Link>
+            </li>
+          )
+        })}
+      </ul>
     </div>
   )
 })
