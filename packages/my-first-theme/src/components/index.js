@@ -2,6 +2,7 @@ import Link from "@frontity/components/link";
 import Switch from "@frontity/components/switch";
 import { connect } from "frontity";
 import React from "react";
+import List from "./list";
 
 const Root = connect(({ state }) => {
   const data = state.source.get(state.router.link)
@@ -20,7 +21,7 @@ const Root = connect(({ state }) => {
       <hr />
       <main>
         <Switch>
-          <div when={data.isArchive}>This is a list.</div>
+          <List when={data.isArchive}>This is a list.</List>
           <div when={data.isPost}>This is a post.</div>
           <div when={data.isPage}>This is a page.</div>
         </Switch>
