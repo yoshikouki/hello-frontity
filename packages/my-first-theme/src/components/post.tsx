@@ -1,4 +1,4 @@
-import { connect } from "frontity"
+import { connect, styled } from 'frontity'
 import React from "react"
 import dayjs from "dayjs";
 
@@ -11,17 +11,31 @@ const Post = connect(({ state }) => {
   return (
     <div>
       <h2>{post.title.rendered}</h2>
-      <div>
-        <strong>Posted: </strong>
-        {formattedDate}
-      </div>
-      <div>
-        <strong>Author: </strong>
-        {author.name}
-      </div>
+      <PostInfo>
+        <p>
+          <strong>Posted: </strong>
+          {formattedDate}
+        </p>
+        <p>
+          <strong>Author: </strong>
+          {author.name}
+        </p>
+      </PostInfo>
       <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
     </div>
   )
 })
 
 export default Post
+
+const PostInfo = styled.div`
+  background-image: linear-gradient(to right, #f4f4f4, #fff);
+  margin-bottom: 1em;
+  padding: 0.5em;
+  border-left: 4px solid lightseagreen;
+  font-size: 0.8em;
+
+  & > p {
+    margin: 0;
+  }
+`
