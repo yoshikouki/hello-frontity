@@ -6,8 +6,13 @@ import List from "./list";
 import Page from "./page";
 import Post from "./post";
 
-const Root = connect(({ state }) => {
+const Root = connect(({ state, actions }) => {
   const data = state.source.get(state.router.link)
+  const visibleCurrentUrl = <>
+    Current URL: {state.router.link}
+    <button onClick={actions.theme.toggleUrl}>&#x3c; Hide URL</button>
+  </>
+  const invisibleCurrentUrl = <button onClick={actions.theme.toggleUrl}>Show URL &#x3e;</button>
 
   return (
     <>
@@ -24,10 +29,9 @@ const Root = connect(({ state }) => {
       <Header isPostType={data.isPostType} isPage={data.isPage}>
         <HeaderContent>
           <h1>Hello, Frontity from components!!1</h1>
-          <p>Current URL: {state.router.link}</p>
+          { state.theme.isUrlVisible ? visibleCurrentUrl : invisibleCurrentUrl }
           <Menu>
             <Link link="/">Home</Link>
-            <Link link="/page/2">More posts</Link>
             <Link link="/about-us">About Us</Link>
           </Menu>
         </HeaderContent>
