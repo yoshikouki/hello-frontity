@@ -25,11 +25,11 @@ const Root = connect(({ state }) => {
         <HeaderContent>
           <h1>Hello, Frontity from components!!1</h1>
           <p>Current URL: {state.router.link}</p>
-          <ul>
-            <li><Link link="/">Home</Link></li>
-            <li><Link link="/page/2">More posts</Link></li>
-            <li><Link link="/about-us">About Us</Link></li>
-          </ul>
+          <Menu>
+            <Link link="/">Home</Link>
+            <Link link="/page/2">More posts</Link>
+            <Link link="/about-us">About Us</Link>
+          </Menu>
         </HeaderContent>
       </Header>
       <hr/>
@@ -62,6 +62,18 @@ const HeaderContent = styled.div`
   padding: 2em 1em;
   margin: auto;
 `
+
+const Menu = styled.nav`
+  display: flex;
+  flex-direction: row;
+  margin-top: 1em;
+  & > a {
+    margin-right: 1em;
+    color: steelblue;
+    text-decoration: none;
+  }
+`
+
 const Main = styled.main`
   max-width: 800px;
   padding: 1em;
