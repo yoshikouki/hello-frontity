@@ -3,6 +3,7 @@ import Switch from "@frontity/components/switch";
 import { connect } from "frontity";
 import React from "react";
 import List from "./list";
+import Page from "./page";
 import Post from "./post";
 
 const Root = connect(({ state }) => {
@@ -24,7 +25,7 @@ const Root = connect(({ state }) => {
         <Switch>
           <List when={data.isArchive}>This is a list.</List>
           <Post when={data.isPost}>This is a post.</Post>
-          <Post when={data.isPage}>This is a page.</Post>
+          <Page when={data.isPage}>This is a page.</Page>
         </Switch>
       </main>
     </>
