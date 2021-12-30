@@ -32,7 +32,6 @@ const Root = connect(({ state, actions }) => {
           { state.theme.isUrlVisible ? visibleCurrentUrl : invisibleCurrentUrl }
           <Menu>
             <Link link="/">Home</Link>
-            <Link link="/page/2">More posts</Link>
             <Link link="/about-us">About Us</Link>
           </Menu>
         </HeaderContent>
