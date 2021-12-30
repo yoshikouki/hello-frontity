@@ -1,6 +1,6 @@
 import Link from "@frontity/components/link";
 import Switch from "@frontity/components/switch";
-import { connect } from "frontity";
+import { connect, css, Global } from "frontity";
 import React from "react";
 import List from "./list";
 import Page from "./page";
@@ -11,6 +11,11 @@ const Root = connect(({ state }) => {
 
   return (
     <>
+      <Global styles={css`
+        html {
+          font-family: system-ui, Verdana, Arial, sans-serif;
+        }
+      `} />
       <h1>Hello, Frontity from components!!1</h1>
       <p>Current URL: {state.router.link}</p>
       <nav>
