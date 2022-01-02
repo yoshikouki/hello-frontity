@@ -32,6 +32,7 @@ const Root = connect(({ state, actions }) => {
           { state.theme.isUrlVisible ? visibleCurrentUrl : invisibleCurrentUrl }
           <Menu>
             <Link link="/">Home</Link>
+            <Link link="/destinations">Destinations</Link>
             <Link link="/about-us">About Us</Link>
           </Menu>
         </HeaderContent>
@@ -42,6 +43,7 @@ const Root = connect(({ state, actions }) => {
           <List when={data.isArchive}>This is a list.</List>
           <Post when={data.isPost}>This is a post.</Post>
           <Page when={data.isPage}>This is a page.</Page>
+          <Page when={data.isDestinations}/>
         </Switch>
       </Main>
     </>
