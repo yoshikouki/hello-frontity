@@ -5,6 +5,8 @@ import React from "react";
 import List from "./list";
 import Page from "./page";
 import Post from "./post";
+import Loading from './loading'
+import Error from './error'
 
 const Root = connect(({ state, actions }) => {
   const data = state.source.get(state.router.link)
@@ -40,10 +42,12 @@ const Root = connect(({ state, actions }) => {
       <hr/>
       <Main>
         <Switch>
+          <Loading when={data.isFetching}/>
           <List when={data.isArchive}>This is a list.</List>
           <Post when={data.isPost}>This is a post.</Post>
           <Page when={data.isPage}>This is a page.</Page>
           <Page when={data.isDestinations}/>
+          <Error when={data.isError} />
         </Switch>
       </Main>
     </>
